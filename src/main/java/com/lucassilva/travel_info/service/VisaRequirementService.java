@@ -1,11 +1,12 @@
 package com.lucassilva.travel_info.service;
 
 import com.lucassilva.travel_info.entity.VisaRequirement;
+import com.lucassilva.travel_info.model.response.PaginatedResponse;
 import com.opencsv.bean.CsvToBeanBuilder;
 import jakarta.annotation.PostConstruct;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,17 +29,17 @@ public class VisaRequirementService {
     }
 
     @Cacheable("visaRequirements")
-    public Flux<VisaRequirement> getDestinationsForPassport(String passport, int page, int size) {
-        // Filter the results based on the passport
+    public Mono<PaginatedResponse<VisaRequirement>> getDestinationsForPassport(String passport, int page, int size) {
         List<VisaRequirement> filtered = visaRequirements.stream()
                 .filter(vr -> vr.getPassport().equalsIgnoreCase(passport))
-                .collect(Collectors.toList());
+                .toList();
 
-        // Implement pagination logic
         int start = page * size;
         int end = Math.min(start + size, filtered.size());
+        List<VisaRequirement> paginatedList = filtered.subList(start, end);
 
-        // Return the paginated subset as a Flux
-        return Flux.fromIterable(filtered.subList(start, end));
+        PaginatedResponse<VisaRequirement> response = new PaginatedResponse<>(
+                paginatedList, filtered.size(), page, size);
+        return Mono.just(response);
     }
 }
