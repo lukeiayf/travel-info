@@ -2,14 +2,14 @@ package com.lucassilva.travel_info.model.response;
 
 import java.util.List;
 
-public class PaginatedResponse<T> {
+public class AbstractPaginatedResponse<T> {
     private final List<T> items;
     private final int totalItems;
     private final int currentPage;
     private final int totalPages;
     private final int pageSize;
 
-    public PaginatedResponse(List<T> items, int totalItems, int currentPage, int pageSize) {
+    public AbstractPaginatedResponse(List<T> items, int totalItems, int currentPage, int pageSize) {
         this.items = items;
         this.totalItems = totalItems;
         this.currentPage = currentPage;
