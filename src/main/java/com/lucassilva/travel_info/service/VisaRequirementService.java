@@ -3,6 +3,7 @@ package com.lucassilva.travel_info.service;
 import com.lucassilva.travel_info.entity.VisaRequirement;
 import com.opencsv.bean.CsvToBeanBuilder;
 import jakarta.annotation.PostConstruct;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
@@ -25,6 +26,7 @@ public class VisaRequirementService {
         }
     }
 
+    @Cacheable("visaRequirements")
     public List<VisaRequirement> getDestinationsForPassport(String passport) {
         return visaRequirements.stream()
                 .filter(vr -> vr.getPassport().equalsIgnoreCase(passport))
