@@ -92,3 +92,8 @@ $ java -jar target/travel-info-0.0.1-SNAPSHOT.jar
     "totalPages": 20,
     "pageSize": 10 
 ```
+- To run the frontend application (port 3000) run:
+
+```
+npm install && npm run dev
+```
