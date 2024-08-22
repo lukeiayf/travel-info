@@ -4,25 +4,25 @@
             placeholder="Search for meals" @change="searchMeals" />
 
     </div>
-    <Meals :meals="meals" />
+     <TravelInfo :travelInfo="travelInfo" />
 </template>
 
 <script setup>
 import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import Meals from '../components/Meals.vue';
+import TravelInfo from '../components/TravelInfo.vue';
 import store from '../store';
 
 
 const route = useRoute();
 const keyWord = ref('');
-const meals = computed(() => store.state.searchedMeals)
+const travelInfo = computed(() => store.state.travelInfo)
 
 function searchMeals() {
     if (keyWord.value) {
-        store.dispatch('searchMeals', keyWord.value);
+        store.dispatch('searchTravelInfo', keyWord.value);
     } else {
-        store.commit('setSearchedMeals', []);
+        store.commit('setTravelInfo', []);
     }
 }
 
