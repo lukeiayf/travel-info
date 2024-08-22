@@ -1,10 +1,14 @@
 import axiosClient from "../axiosClient";
 
-export function searchTravelInfo({ commit }, country) {
-    axiosClient.get(`${country}?size=20`).then(
+export function searchTravelInfo({ commit }, { country, page }) {
+    axiosClient.get(`${country}?page=${page}&size=21`).then(
         ({ data }) => {
-            commit('setTravelInfo', data.items)
+            commit('setTravelInfo', data)
         }
     )
 
+}
+
+export function updateCountry({ commit }, country) {
+   commit('setCountry', country)
 }

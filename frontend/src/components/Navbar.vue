@@ -4,7 +4,7 @@
         <div class="flex items-center gap-1">
             <router-link :to="{ name: 'byName' }"
                 class="inline-flex items-center transition-colors px-2 h-full hover:bg-purple-100">
-                Search Travel Information for a country
+                See visa requirements for travel based on the searched country.
             </router-link>
         </div>
     </header>

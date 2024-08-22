@@ -8,7 +8,7 @@ const store = createStore({
     state,
     actions,
     mutations,
-    getters,
+    getters
 })
 
 export default store;
