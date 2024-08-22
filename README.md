@@ -19,6 +19,7 @@ For more info check the pom.xml file
 - Vue 3
 - Vuex
 - Vue Router
+- Tailwind CSS
 
 ## How to run
 

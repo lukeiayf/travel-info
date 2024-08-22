@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white shadow rounded-xl">
+    <div class="bg-white shadow rounded-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-101 hover:shadow-lg">
         <a :href="wikipediaLink" target="_blank">
             <div class="p-3">
                 <h3 class="font-bold">{{ travelInfo.destination }}</h3>
