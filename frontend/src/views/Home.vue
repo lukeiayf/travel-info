@@ -5,7 +5,7 @@
 </template>
 <script setup>
 import { onMounted, ref } from 'vue';
-import axiosClient from '../axiosClient';
+import { axiosClient } from '../axiosClient';
 
 const travelInfo = ref([]);
 

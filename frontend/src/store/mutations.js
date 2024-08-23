@@ -5,3 +5,7 @@ export function setTravelInfo(state, travelInfo) {
 export function setCountry(state, country) {
     state.country = country || "";
 }
+
+export function setCountryFlag(state, countryIso) {
+    state.countryIso = countryIso || "";
+}

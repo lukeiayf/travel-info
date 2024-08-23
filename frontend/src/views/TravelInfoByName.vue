@@ -13,7 +13,6 @@ import { useRoute } from 'vue-router';
 import TravelInfo from '../components/TravelInfo.vue';
 import store from '../store';
 
-
 const route = useRoute();
 const keyWord = ref('');
 const travelInfo = computed(() => store.state.travelInfo.items)
@@ -39,4 +38,5 @@ watch(keyWord, (newVal, oldVal) => {
     searchCountry();
   }
 });
+
 </script>
